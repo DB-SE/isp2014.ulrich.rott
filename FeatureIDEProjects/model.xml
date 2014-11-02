@@ -3,13 +3,33 @@
 		<struct>
 			<and abstract="true" mandatory="true" name="JBudgetcontrol">
 				<and mandatory="true" name="Transaktion">
-					<feature mandatory="true" name="tInsertion"/>
-					<feature name="tModification"/>
-					<feature name="tDelete"/>
+					<feature mandatory="true" name="tInsertion">
+						<description>
+							create a new transaction
+						</description>
+					</feature>
+					<feature name="tModification">
+						<description>
+							edit an existing transaction
+						</description>
+					</feature>
+					<feature name="tDelete">
+						<description>
+							delete an existing transaction
+						</description>
+					</feature>
 				</and>
 				<and mandatory="true" name="Session">
-					<feature mandatory="true" name="Login"/>
-					<feature mandatory="true" name="Logout"/>
+					<feature mandatory="true" name="Login">
+						<description>
+							login function (grant access)
+						</description>
+					</feature>
+					<feature mandatory="true" name="Logout">
+						<description>
+							logout function (forbid access)
+						</description>
+					</feature>
 				</and>
 				<or name="Statistik">
 					<feature mandatory="true" name="YearOverview"/>
@@ -19,15 +39,43 @@
 				</or>
 				<feature mandatory="true" name="DB_MYSQL"/>
 				<and name="Accounts">
-					<feature mandatory="true" name="aInsersrion"/>
-					<feature name="aModification"/>
-					<feature name="aDelete"/>
-					<feature name="aTransfer"/>
+					<feature mandatory="true" name="aInsersrion">
+						<description>
+							create a new account
+						</description>
+					</feature>
+					<feature name="aModification">
+						<description>
+							edit an existing account
+						</description>
+					</feature>
+					<feature name="aDelete">
+						<description>
+							delete an existing account
+						</description>
+					</feature>
+					<feature name="aTransfer">
+						<description>
+							transfer a value from one account to an other
+						</description>
+					</feature>
 				</and>
 				<and name="Categories">
-					<feature mandatory="true" name="cInsertion"/>
-					<feature name="cModification"/>
-					<feature name="cDelete"/>
+					<feature mandatory="true" name="cInsertion">
+						<description>
+							create a new budget category
+						</description>
+					</feature>
+					<feature name="cModification">
+						<description>
+							edit an existing category
+						</description>
+					</feature>
+					<feature name="cDelete">
+						<description>
+							delete an existing category
+						</description>
+					</feature>
 				</and>
 			</and>
 		</struct>
@@ -45,6 +93,7 @@
 				</imp>
 			</rule>
 		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
 	</featureModel>
