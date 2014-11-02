@@ -18,13 +18,13 @@
 					<feature mandatory="true" name="CategoriesOverview"/>
 				</or>
 				<feature mandatory="true" name="DB_MYSQL"/>
-				<and mandatory="true" name="Accounts">
+				<and name="Accounts">
 					<feature mandatory="true" name="aInsersrion"/>
 					<feature name="aModification"/>
 					<feature name="aDelete"/>
 					<feature name="aTransfer"/>
 				</and>
-				<and mandatory="true" name="Categories">
+				<and name="Categories">
 					<feature mandatory="true" name="cInsertion"/>
 					<feature name="cModification"/>
 					<feature name="cDelete"/>
