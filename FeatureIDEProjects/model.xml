@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="JBudgetcontrol">
+				<and mandatory="true" name="Transaktion">
+					<feature mandatory="true" name="tInsertion"/>
+					<feature name="tModification"/>
+					<feature name="tDelete"/>
+				</and>
+				<and mandatory="true" name="Session">
+					<feature mandatory="true" name="Login"/>
+					<feature mandatory="true" name="Logout"/>
+				</and>
+				<or name="Statistik">
+					<feature mandatory="true" name="YearOverview"/>
+					<feature mandatory="true" name="MonthOverview"/>
+					<feature mandatory="true" name="AccountsOverview"/>
+					<feature mandatory="true" name="CategoriesOverview"/>
+				</or>
+				<feature mandatory="true" name="DB_MYSQL"/>
+				<and mandatory="true" name="Accounts">
+					<feature mandatory="true" name="aInsersrion"/>
+					<feature name="aModification"/>
+					<feature name="aDelete"/>
+					<feature name="aTransfer"/>
+				</and>
+				<and mandatory="true" name="Categories">
+					<feature mandatory="true" name="cInsertion"/>
+					<feature name="cModification"/>
+					<feature name="cDelete"/>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>AccountsOverview</var>
+					<var>Accounts</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>CategoriesOverview</var>
+					<var>Categories</var>
+				</imp>
+			</rule>
+		</constraints>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
