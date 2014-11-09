@@ -14,9 +14,9 @@ public class dbConnector {
 
     public dbConnector() {
         VariablesConst constants = new VariablesConst();
-        url = constants.url;
-        user = constants.user;
-        password = constants.password;
+        url = constants.getUrl();
+        user = constants.getUser();
+        password = constants.getPassword();
 
         try {
             con = DriverManager.getConnection(url, user, password);

@@ -1,0 +1,46 @@
+======================================
+============ Task 2 ==================
+======================================
+!! Set option in the main function !!
+
+[Option 0 - normal]
+- Transaction
+-> Insertion
+
+- User
+
+[Option 1 - gold]
+- Transactio
+-> Insertionn
+-> Modification
+
+- Account
+-> Insertion
+-> Modification
+
+- Category
+-> Insertion
+-> Modification
+
+- User
+
+[Option 2 - platin]
+- Transaction
+-> Insertion
+-> Modification
+-> Delete
+
+- Account
+-> Insertion
+-> Modification
+-> Delete
+
+- Category
+-> Insertion
+-> Modification
+-> Delete
+
+- User
+
+======================================
+======================================
