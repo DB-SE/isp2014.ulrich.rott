@@ -5,9 +5,14 @@ public class VariablesConst {
     private final String user = "REPLACE THIS WITH DB USERNAME";
     private final String password = "REPLACE THIS WITH DB PASSWORD";
 
+    // options for permissions
+    private boolean oRead;
+    private boolean oWrite;
+
     // options for transactions
     private final boolean oTransaction = true;
-    private final boolean oTaInsert = true;
+    private final boolean oTaShow = true;
+    private boolean oTaInsert = true;
     private boolean oTaMod;
     private boolean oTaDel;
 
@@ -27,6 +32,10 @@ public class VariablesConst {
     private final boolean oUser = true;
 
     public VariablesConst(){
+        oRead = true;
+        oWrite = false;
+
+        oTaInsert = true;
         oTaMod = false;
         oTaDel = false;
 
@@ -39,6 +48,33 @@ public class VariablesConst {
         oCyInsert = false;
         oCyMod = false;
         oCyDel = false;
+    }
+
+    public boolean isoTaShow() {
+        return oTaShow;
+    }
+
+    public void setoTaInsert(boolean oTaInsert) {
+        this.oTaInsert = oTaInsert;
+    }
+
+    public boolean isoWrite() {
+        return oWrite;
+    }
+
+    public void setoWrite(boolean oWrite) {
+        if (oWrite = true){
+            this.oRead = oWrite;
+        }
+        this.oWrite = oWrite;
+    }
+
+    public boolean isoRead() {
+        return oRead;
+    }
+
+    public void setoRead(boolean oRead) {
+        this.oRead = oRead;
     }
 
     public String getUrl() {

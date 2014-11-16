@@ -50,11 +50,15 @@ public class Main {
             case 0: {
                 System.out.println("TransactionManager was selected");
                 ArrayList<String> options = new ArrayList<String>();
-                options.add("insertion");
-                if (VariablesConst.isoTaMod())
-                    options.add("modification");
-                if (VariablesConst.isoTaDel())
-                    options.add("delete");
+                options.add("show");
+                if (VariablesConst.isoWrite()) {
+                    if (VariablesConst.isoTaInsert())
+                        options.add("insertion");
+                    if (VariablesConst.isoTaMod())
+                        options.add("modification");
+                    if (VariablesConst.isoTaDel())
+                        options.add("delete");
+                }
                 runTaOption(MenuCreator(options));
                 break;
             }
@@ -84,14 +88,18 @@ public class Main {
     private static void runTaOption(int select) {
         switch (select) {
             case 0: {
-                System.out.println("Insertion was selected");
+                System.out.println("Viewmodus was selected");
                 break;
             }
             case 1: {
-                System.out.println("Modification was selected");
+                System.out.println("Insertion was selected");
                 break;
             }
             case 2: {
+                System.out.println("Modification was selected");
+                break;
+            }
+            case 3: {
                 System.out.println("Delete was selected");
                 break;
             }
@@ -140,6 +148,22 @@ public class Main {
                 default: {
                     System.err.print("Invalid parameter input!");
                     System.exit(1);
+                }
+            }
+            if (args.length > 1) {
+                switch (args[1].charAt(0)) {
+                    case 'r': {
+                        VariablesConst.setoRead(true);
+                        VariablesConst.setoWrite(false);
+                    }
+                    case 'w': {
+                        VariablesConst.setoRead(true);
+                        VariablesConst.setoWrite(true);
+                    }
+                    default: {
+                        VariablesConst.setoRead(true);
+                        VariablesConst.setoWrite(false);
+                    }
                 }
             }
         }

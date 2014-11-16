@@ -15,6 +15,14 @@ public class TransactionManager {
         this.db = new dbConnector();
     }
 
+    public void show(int tid) throws SQLException{
+        String stmt = "SELECT * FROM transactions WHERE tid = ?";
+        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
+        ps.setInt(1, tid);
+        //TODO
+        db.runStmt(ps);
+    }
+
     public void createNew(Transaction transaction) throws SQLException {
         String stmt = "INSERT INTO transactions (description, amount, date, cid, aid, uid) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = db.getConnection().prepareStatement(stmt);
