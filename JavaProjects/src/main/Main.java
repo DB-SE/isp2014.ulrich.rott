@@ -132,7 +132,7 @@ public class Main {
                     break;
                 }
                 case '2': {
-                    System.out.println("Version 'platin'");
+                    System.out.println("Version 'platinum'");
                     VariablesConst.setoTaMod(true);
                     VariablesConst.setoTaDel(true);
 

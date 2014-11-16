@@ -1,16 +1,29 @@
 ======================================
 ============ Task 2 ==================
 ======================================
-!! Set option in the main function !!
+Parameter 1 [package]:
+Default: normal package
+'1' for normal package
+'2' for gold package
+'3' for platinum package
 
-[Option 0 - normal]
+Parameter 2 [read / write option]:
+Default ist read
+'r' for read permission
+'w' for read/write permission
+
+
+########################## PACKAGES ##########################
+################## [Option 0 - normal] ##################
 - Transaction
+-> Show
 -> Insertion
 
 - User
 
-[Option 1 - gold]
-- Transactio
+################## [Option 1 - gold] ####################
+- Transaction
+-> Show
 -> Insertionn
 -> Modification
 
@@ -24,8 +37,9 @@
 
 - User
 
-[Option 2 - platin]
+################## [Option 2 - platinum] ##################
 - Transaction
+-> Show
 -> Insertion
 -> Modification
 -> Delete
@@ -42,5 +56,4 @@
 
 - User
 
-======================================
-======================================
+##############################################################
