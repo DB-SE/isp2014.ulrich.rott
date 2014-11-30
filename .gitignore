@@ -12,8 +12,8 @@
 hs_err_pid*
 
 
-FeatureIDEProjects/.settings/
-JavaProjects/bin
-JavaProjects/.idea
+.settings/
+bin
+.idea
 *.iml
 

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="Preprocessor">
+				<and mandatory="true" name="Transaktion">
+					<feature mandatory="true" name="tInsertion">
+						<description>
+							create a new transaction
+						</description>
+					</feature>
+					<feature name="tModification">
+						<description>
+							edit an existing transaction
+						</description>
+					</feature>
+					<feature name="tDelete">
+						<description>
+							delete an existing transaction
+						</description>
+					</feature>
+				</and>
+				<and mandatory="true" name="Session">
+					<feature mandatory="true" name="Login">
+						<description>
+							login function (grant access)
+						</description>
+					</feature>
+					<feature mandatory="true" name="Logout">
+						<description>
+							logout function (forbid access)
+						</description>
+					</feature>
+				</and>
+				<or name="Statistik">
+					<feature mandatory="true" name="YearOverview"/>
+					<feature mandatory="true" name="MonthOverview"/>
+					<feature mandatory="true" name="AccountsOverview"/>
+					<feature mandatory="true" name="CategoriesOverview"/>
+				</or>
+				<feature mandatory="true" name="DB_MYSQL"/>
+				<and name="Accounts">
+					<feature mandatory="true" name="aInsersrion">
+						<description>
+							create a new account
+						</description>
+					</feature>
+					<feature name="aModification">
+						<description>
+							edit an existing account
+						</description>
+					</feature>
+					<feature name="aDelete">
+						<description>
+							delete an existing account
+						</description>
+					</feature>
+					<feature name="aTransfer">
+						<description>
+							transfer a value from one account to an other
+						</description>
+					</feature>
+				</and>
+				<and name="Categories">
+					<feature mandatory="true" name="cInsertion">
+						<description>
+							create a new budget category
+						</description>
+					</feature>
+					<feature name="cModification">
+						<description>
+							edit an existing category
+						</description>
+					</feature>
+					<feature name="cDelete">
+						<description>
+							delete an existing category
+						</description>
+					</feature>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>AccountsOverview</var>
+					<var>Accounts</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>CategoriesOverview</var>
+					<var>Categories</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
