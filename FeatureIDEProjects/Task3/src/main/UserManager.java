@@ -15,13 +15,16 @@ public class UserManager {
         this.db = new dbConnector();
     }
 
+    //#ifdef uInsertion
     public void create(User user) throws SQLException {
         String stmt = "INSERT INTO users (username, realname, email, password) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = db.getConnection().prepareStatement(stmt);
         fillValues(ps, user);
         db.runStmt(ps);
     }
+    //#endif
 
+    //#ifdef uModification
     public void mod(User userOld, User userNew) throws SQLException {
         mod(userOld.getUid(), userNew);
     }
@@ -33,7 +36,9 @@ public class UserManager {
         ps.setInt(5, uidOld);
         db.runStmt(ps);
     }
+    //#endif
 
+    //#ifdef uDelete
     public void delete(User user) throws SQLException {
         delete(user.getUid());
     }
@@ -43,6 +48,7 @@ public class UserManager {
         PreparedStatement ps = db.getConnection().prepareStatement(stmt);
         ps.setInt(1, uid);
     }
+    //#endif
 
     private PreparedStatement fillValues(PreparedStatement ps, User user) throws SQLException{
         ps.setString(1, user.getUsername());

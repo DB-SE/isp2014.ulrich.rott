@@ -39,7 +39,7 @@
 				</or>
 				<feature mandatory="true" name="DB_MYSQL"/>
 				<and name="Accounts">
-					<feature mandatory="true" name="aInsersrion">
+					<feature name="aInsertion">
 						<description>
 							create a new account
 						</description>
@@ -76,6 +76,11 @@
 							delete an existing category
 						</description>
 					</feature>
+				</and>
+				<and name="Users">
+					<feature mandatory="true" name="uInsertion"/>
+					<feature name="uModification"/>
+					<feature name="uDelete"/>
 				</and>
 			</and>
 		</struct>

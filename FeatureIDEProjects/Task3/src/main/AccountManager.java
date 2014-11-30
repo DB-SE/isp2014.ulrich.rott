@@ -18,7 +18,8 @@ public class AccountManager {
         this.db = new dbConnector();
         this.tm = new TransactionManager(uid);
     }
-
+    
+    //#ifdef aInsertion
     public void create(Account account) throws SQLException {
         String stmt = "INSERT INTO accounts (atitle, adescription, aamount, uid) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = db.getConnection().prepareStatement(stmt);
@@ -26,7 +27,9 @@ public class AccountManager {
         ps.setInt(4, uid);
         db.runStmt(ps);
     }
+    //#endif
 
+    //#ifdef aModification
     public void mod(Account accountOld, Account accountNew) throws SQLException {
         mod(accountOld.getAid(), accountNew);
     }
@@ -38,7 +41,9 @@ public class AccountManager {
         ps.setInt(4, aidOld);
         db.runStmt(ps);
     }
+    //#endif
 
+    //#ifdef aDelete
     public void delete(Account account) throws SQLException {
         delete(account.getAid());
     }
@@ -48,7 +53,9 @@ public class AccountManager {
         PreparedStatement ps = db.getConnection().prepareStatement(stmt);
         ps.setInt(1, aid);
     }
+    //#endif
 
+    //#ifdef aTransfer
     public void transfer(Account accountFrom, Account accountTo, float value, Date date) throws SQLException {
         String description = "Transfer from" + accountFrom.getAdescription() + "  To " + accountTo.getAdescription();
         Transaction ta1 = new Transaction(description, value * (-1), date, uid, uid, uid);
@@ -56,6 +63,7 @@ public class AccountManager {
         tm.createNew(ta1);
         tm.createNew(ta2);
     }
+    //#endif
 
     private PreparedStatement fillValues(PreparedStatement ps, Account account) throws SQLException {
         ps.setString(1, account.getAtitle());

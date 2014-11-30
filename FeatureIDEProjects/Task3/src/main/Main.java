@@ -16,12 +16,13 @@ public class Main {
         paramAnalyse(args);
         ArrayList<String> options = new ArrayList<String>();
         options.add("transactions:");
-        if (VariablesConst.isoAccount())
-            options.add("accounts:");
-        if (VariablesConst.isoCategory())
-            options.add("categories:");
-        if (VariablesConst.isoUser())
-            options.add("user account:");
+      	  //#ifdef Accounts
+          options.add("accounts:");
+          //#endif
+          //#ifdef Categories
+          options.add("categories:");
+          //#endif
+          options.add("user account:");
         runMainOption(MenuCreator(options));
         System.out.println("Program was closed.");
         System.exit(0);
@@ -52,12 +53,15 @@ public class Main {
                 ArrayList<String> options = new ArrayList<String>();
                 options.add("show");
                 if (VariablesConst.isoWrite()) {
-                    if (VariablesConst.isoTaInsert())
-                        options.add("insertion");
-                    if (VariablesConst.isoTaMod())
-                        options.add("modification");
-                    if (VariablesConst.isoTaDel())
-                        options.add("delete");
+                	//#ifdef tInsertion
+                    options.add("insertion");
+                    //#endif
+                    //#ifdef tModification
+                 options.add("modification");
+                    //#endif
+                    //#ifdef tDelete
+                    options.add("delete");
+                    //#endif
                 }
                 runTaOption(MenuCreator(options));
                 break;
