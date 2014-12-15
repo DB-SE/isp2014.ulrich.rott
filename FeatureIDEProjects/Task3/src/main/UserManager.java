@@ -1,12 +1,14 @@
 package main;
 
+import objects.Account;
 import objects.User;
 import objects.dbConnector;
+import interfaces.*;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserManager {
+public class UserManager implements Interface<User>{
     private int uid;
     private dbConnector db;
 
