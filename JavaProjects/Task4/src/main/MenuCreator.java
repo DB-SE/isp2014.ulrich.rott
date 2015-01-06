@@ -37,8 +37,9 @@ public class MenuCreator implements MenuInterface {
 	}
 
 	private void showFeatureMenu() {
+		System.out.println(selected.get(selectedMenu).getTitle());
 		for (int i = 0; i < selected.get(selectedMenu).getFunctions().size(); i++) {
-			System.out.println("[" + i + "] " + selected.get(selectedMenu).getFunctions().get(i));
+			System.out.println("\t[" + i + "] " + selected.get(selectedMenu).getFunctions().get(i));
 		}
 	}
 
@@ -64,16 +65,19 @@ public class MenuCreator implements MenuInterface {
 
 	public void getSelectMainMenu() {
 		this.showMainMenu();
-		if (getUserInput(1) != 10)
-			this.selectedMenu = getUserInput(0);
+		int tmp = getUserInput(0);
+
+		if (tmp != 10)
+			this.selectedMenu = tmp;
 		else 
 			this.selectedMenu = 0;
 	}
 
 	public void getSelectUnderMenu() {
 		this.showFeatureMenu();
-		if (getUserInput(1) != 10)
-			this.selectedMenu = getUserInput(1);
+		int tmp = getUserInput(1);
+		if (tmp != 10)
+			this.selectedMenu = tmp;
 		else 
 			this.selectedMenu = 0;
 	}

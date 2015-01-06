@@ -11,7 +11,6 @@ public class Main {
 
 		String[] userInput = new String[2];
 		ArrayList<DataPlugin> features = new ArrayList<DataPlugin>();
-		ArrayList<MenuInterface> menutopics = new ArrayList<MenuInterface>();
 		
 		// Login
 		LoginManager LM = new LoginManager();
@@ -19,14 +18,12 @@ public class Main {
 		LM.login(userInput[0], userInput[1]);
 		
 		DataPlugin Login = new LoginManager();
-		MenuInterface M_Login = new MenuLogin(Login);
 		
 		DataPlugin Account = new AccountManager(LM.getUid());
 		DataPlugin Transaction = new TransactionManager(LM.getUid());
 		DataPlugin User = new UserManager(LM.getUid());
 		
 		features.add(Login);
-		menutopics.add(M_Login);
 		
 		features.add(Account);
 		
@@ -40,6 +37,7 @@ public class Main {
 		
 		//Show Menu
 		System.out.println("[ ============= MENU ============= ]");
+		System.out.println("[ (GO BACK WITH OPTION [10]) ]");
 		MenuCreator Menu = new MenuCreator(features);
 		boolean exit = false;
 		while(exit == false){
