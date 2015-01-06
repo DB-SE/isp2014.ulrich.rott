@@ -2,12 +2,13 @@ package main;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import interfaces.*;
 import objects.Transaction;
 import objects.dbConnector;
 
-public class TransactionManager implements Structure<Transaction> {
+public class TransactionManager implements DataPlugin {
 	private int uid;
 	private dbConnector db;
 
@@ -16,7 +17,6 @@ public class TransactionManager implements Structure<Transaction> {
 		this.db = new dbConnector();
 	}
 
-	@Override
 	public void show(int tid) throws SQLException {
 		String stmt = "SELECT * FROM transactions WHERE tid = ?";
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
@@ -25,7 +25,6 @@ public class TransactionManager implements Structure<Transaction> {
 		db.runStmt(ps);
 	}
 
-	@Override
 	public void createNew(Transaction transaction) throws SQLException {
 		String stmt = "INSERT INTO transactions (description, amount, date, cid, aid, uid) VALUES (?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
@@ -34,12 +33,10 @@ public class TransactionManager implements Structure<Transaction> {
 		db.runStmt(ps);
 	}
 
-	@Override
 	public void mod(Transaction transactionOld, Transaction transactionNew) throws SQLException {
 		mod(transactionOld.getTid(), transactionNew);
 	}
-
-	@Override
+	
 	public void mod(int oldtid, Transaction transaction) throws SQLException {
 		String stmt = "UPDATE transactions SET description = ?, amount = ?, date = ?, cid = ?, aid = ? WHERE tid = ?";
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
@@ -48,12 +45,10 @@ public class TransactionManager implements Structure<Transaction> {
 		db.runStmt(ps);
 	}
 
-	@Override
 	public void delete(Transaction transaction) throws SQLException {
 		delete(transaction.getTid());
 	}
 
-	@Override
 	public void delete(int tid) throws SQLException {
 		String stmt = "DELETE FROM transactions WHERE tid = ?";
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
@@ -67,6 +62,31 @@ public class TransactionManager implements Structure<Transaction> {
 		ps.setInt(4, transaction.getCid());
 		ps.setInt(5, transaction.getAid());
 		return ps;
+	}
+
+	@Override
+	public String getTitle() {
+		return "TransactionsManager";
+	}
+
+	@Override
+	public String getDescription() {
+		return "Manager of the Transactions";
+	}
+
+	@Override
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = new ArrayList<String>();
+		Functions.add("show");
+		Functions.add("create");
+		Functions.add("modify");
+		Functions.add("delete");
+		return Functions;
+	}
+
+	@Override
+	public int getID() {
+		return 2;
 	}
 
 }

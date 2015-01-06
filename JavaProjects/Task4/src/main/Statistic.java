@@ -2,20 +2,33 @@ package main;
 
 import java.sql.Date;
 
-import interfaces.statistic;
+import interfaces.StatisticPlugin;
 
-public class Statistic implements statistic{
+public class Statistic implements StatisticPlugin{
 
-	@Override
 	public double sum(Date from, Date to) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
 	public double avg() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public String getTitle() {
+		return "Statistic";
+	}
+
+	@Override
+	public String getDescription() {
+		return "Statistic of Finance";
+	}
+
+	@Override
+	public String getAccess() {
+		return null;
 	}
 
 }
