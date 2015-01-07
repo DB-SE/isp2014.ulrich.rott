@@ -19,18 +19,29 @@ public class Main {
 		
 		
 		FeatureInterface Login = new LoginManager();
-		FunctionInterface FctLogin = new FcLogin(LM);
-		
+		FunctionInterface FctLogin = new FcLogin((LoginManager) Login);
+				
 		FeatureInterface Account = new AccountManager(LM.getUid());
-		FeatureInterface Transaction = new TransactionManager(LM.getUid());
-		FeatureInterface User = new UserManager(LM.getUid());
+		FunctionInterface FctAccount = new FcAccount((AccountManager) Account);
 		
+		FeatureInterface Transaction = new TransactionManager(LM.getUid());
+		FunctionInterface FctTransaction = new FcTransaction((TransactionManager) Transaction);
+		
+		FeatureInterface User = new UserManager(LM.getUid());
+		FunctionInterface FctUser = new FcUser((UserManager) User);
+		
+		//Change here features
 		features.add(Login);
 		featurefc.add(FctLogin);
 		
 		features.add(Account);
+		featurefc.add(FctAccount);
+		
 		features.add(Transaction);
+		featurefc.add(FctTransaction);
+		
 		features.add(User);
+		featurefc.add(FctUser);
 		
 		// Show selected Features
 		showSelectedFeatures(features);
@@ -51,7 +62,6 @@ public class Main {
 			for (int j = 0; j < selected.get(i).getFunctions().size(); j++){
 				System.out.println("\t- " + selected.get(i).getFunctions().get(j));
 			}
-			
 			System.out.println();
 		}
 	}
