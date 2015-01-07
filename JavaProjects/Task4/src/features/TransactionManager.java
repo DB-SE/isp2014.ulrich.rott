@@ -1,4 +1,4 @@
-package main;
+package features;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -8,7 +8,7 @@ import interfaces.*;
 import objects.Transaction;
 import objects.dbConnector;
 
-public class TransactionManager implements DataPlugin {
+public class TransactionManager implements FeatureInterface {
 	private int uid;
 	private dbConnector db;
 

@@ -1,4 +1,4 @@
-package main;
+package features;
 
 import interfaces.*;
 import objects.Account;
@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class AccountManager implements DataPlugin {
+public class AccountManager implements FeatureInterface {
 	private int uid;
 	private dbConnector db;
 	private TransactionManager tm;

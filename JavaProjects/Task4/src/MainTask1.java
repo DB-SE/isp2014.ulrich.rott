@@ -1,4 +1,3 @@
-package main;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -6,7 +5,7 @@ import java.util.Scanner;
 
 import settings.VariablesConst;
 
-public class Main {
+public class MainTask1 {
     private static VariablesConst VariablesConst;
 
     public static void main(String[] args) throws SQLException {

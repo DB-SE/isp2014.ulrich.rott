@@ -1,4 +1,4 @@
-package main;
+package features;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 import objects.dbConnector;
 import interfaces.*;
 
-public class LoginManager implements DataPlugin{
+public class LoginManager implements FeatureInterface{
 	private int uid;
 	private String username;
 	private boolean status;

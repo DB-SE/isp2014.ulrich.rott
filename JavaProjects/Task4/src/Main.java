@@ -1,7 +1,8 @@
 import java.sql.SQLException;
 import java.util.*;
 
-import main.*;
+import functions.*;
+import features.*;
 import interfaces.*;
 
 public class Main {
@@ -9,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws SQLException {
 		System.out.println("Wilkommen beim Budgetcontrol");
 
-		ArrayList<DataPlugin> features = new ArrayList<DataPlugin>();
+		ArrayList<FeatureInterface> features = new ArrayList<FeatureInterface>();
 		ArrayList<FunctionInterface> featurefc = new ArrayList<FunctionInterface>();
 		
 		// Login
@@ -17,12 +18,12 @@ public class Main {
 		LM.login();
 		
 		
-		DataPlugin Login = new LoginManager();
+		FeatureInterface Login = new LoginManager();
 		FunctionInterface FctLogin = new FcLogin(LM);
 		
-		DataPlugin Account = new AccountManager(LM.getUid());
-		DataPlugin Transaction = new TransactionManager(LM.getUid());
-		DataPlugin User = new UserManager(LM.getUid());
+		FeatureInterface Account = new AccountManager(LM.getUid());
+		FeatureInterface Transaction = new TransactionManager(LM.getUid());
+		FeatureInterface User = new UserManager(LM.getUid());
 		
 		features.add(Login);
 		featurefc.add(FctLogin);
@@ -41,7 +42,7 @@ public class Main {
 	}
 
 	
-	private static void showSelectedFeatures(ArrayList<DataPlugin> selected){
+	private static void showSelectedFeatures(ArrayList<FeatureInterface> selected){
 		System.out.println("Unlocked Features:");
 		for (int i = 0; i < selected.size(); i++){
 			System.out.print("["+ i+"] " + selected.get(i).getTitle());

@@ -1,4 +1,4 @@
-package main;
+
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import sun.nio.ch.SelChImpl;
 import interfaces.*;
 
 public class MenuCreator {
-	private ArrayList<DataPlugin> selected;
+	private ArrayList<FeatureInterface> selected;
 	private ArrayList<FunctionInterface> selectedfc;
 	private int selectedMainMenu; // ID of feature
 	private int selectedFeatureMenu; // ID of feature
@@ -16,7 +16,7 @@ public class MenuCreator {
 	private boolean goMainMenu = false;
 	private boolean featurepart = false;
 
-	public MenuCreator(ArrayList<DataPlugin> selected, ArrayList<FunctionInterface> selectedfc) {
+	public MenuCreator(ArrayList<FeatureInterface> selected, ArrayList<FunctionInterface> selectedfc) {
 		this.selected = selected;
 		this.selectedfc = selectedfc;
 	}

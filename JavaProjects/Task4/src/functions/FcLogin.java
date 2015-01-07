@@ -1,7 +1,8 @@
+package functions;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import main.*;
+import features.*;
 import interfaces.*;
 
 public class FcLogin implements FunctionInterface{

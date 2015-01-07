@@ -2,7 +2,7 @@ package interfaces;
 
 import java.util.*;
 
-public interface DataPlugin {
+public interface FeatureInterface {
 	public String getTitle();
 	public String getDescription();
 	public int getID();

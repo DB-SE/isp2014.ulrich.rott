@@ -1,4 +1,4 @@
-package main;
+package features;
 
 import interfaces.*;
 import objects.User;
@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserManager implements DataPlugin {
+public class UserManager implements FeatureInterface {
 	private int uid;
 	private dbConnector db;
 
