@@ -2,6 +2,7 @@ package main;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import objects.dbConnector;
 import interfaces.*;
@@ -19,16 +20,24 @@ public class LoginManager implements DataPlugin{
 		this.db = new dbConnector();
 	}
 	
-	public void login(String username, String password) throws SQLException{
-		this.username = username;
-		uid = checkPassword(password);
+	public void login() throws SQLException{
+		String[] userInput = new String[2];
+		userInput = getUserInput();
+		this.username = userInput[0];
+		uid = checkPassword(userInput[1]);
 	}
 	
 	public void logout(){
-		
+		status = false;
+		System.out.println("Logout success!");
 	}
 	
 	public boolean getStatus(){
+		if (status){
+			System.out.println("\t\tYour are logged in");
+		} else {
+			System.out.println("\t\tYour are not logged in");
+		}
 		return status;
 	}
 	
@@ -47,9 +56,10 @@ public class LoginManager implements DataPlugin{
 		int DBuID = 100;
 		//if (ps.getResultSet().getString(0) == password){
 			status = true;
-			System.out.println("- login success -");
+			System.out.println("\t\t- login success -");
 		/*} else {
 			System.out.println("- login failed -");
+			status = false
 		}*/
 		return DBuID;
 	}
@@ -78,5 +88,21 @@ public class LoginManager implements DataPlugin{
 	public int getID() {
 		return 0;
 	}
-
+	
+	public static String[] getUserInput(){
+		String[] result = new String[2];
+		
+		System.out.print("User: ");
+		Scanner userInput = new Scanner(System.in);
+		result[0] = userInput.nextLine();
+        userInput.reset();
+        
+        System.out.print("Password: ");
+        Scanner passwordInput = new Scanner(System.in);
+        result[1] = userInput.nextLine();
+        userInput.reset();
+        System.out.println();
+        
+		return result;
+	}
 }

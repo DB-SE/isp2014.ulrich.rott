@@ -1,33 +1,24 @@
 package main;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import sun.nio.ch.SelChImpl;
 import interfaces.*;
 
-public class MenuCreator implements MenuInterface {
+public class MenuCreator {
 	private ArrayList<DataPlugin> selected;
-	private int selectedMenu; // ID of feature
+	private ArrayList<FunctionInterface> selectedfc;
+	private int selectedMainMenu; // ID of feature
+	private int selectedFeatureMenu; // ID of feature
 	private boolean exit = false;
 	private boolean goMainMenu = false;
+	private boolean featurepart = false;
 
-	public MenuCreator(ArrayList<DataPlugin> selected) {
+	public MenuCreator(ArrayList<DataPlugin> selected, ArrayList<FunctionInterface> selectedfc) {
 		this.selected = selected;
-	}
-
-	@Override
-	public String getTitle() {
-		return "Main-Menu";
-	}
-
-	@Override
-	public ArrayList<String> getButtonstitles() {
-		ArrayList<String> result = new ArrayList<String>();
-
-		for (int i = 0; i < selected.size(); i++) {
-			result.add(selected.get(i).getTitle());
-		}
-		return result;
+		this.selectedfc = selectedfc;
 	}
 
 	private void showMainMenu() {
@@ -37,28 +28,25 @@ public class MenuCreator implements MenuInterface {
 	}
 
 	private void showFeatureMenu() {
-		System.out.println(selected.get(selectedMenu).getTitle());
-		for (int i = 0; i < selected.get(selectedMenu).getFunctions().size(); i++) {
-			System.out.println("\t[" + i + "] " + selected.get(selectedMenu).getFunctions().get(i));
+		System.out.println(selected.get(selectedMainMenu).getTitle());
+		for (int i = 0; i < selected.get(selectedMainMenu).getFunctions().size(); i++) {
+			System.out.println("\t[" + i + "] " + selected.get(selectedMainMenu).getFunctions().get(i));
 		}
 	}
 
 	private int getUserInput(int stage) {
 		System.out.print("Go to: ");
 		Scanner userInput = new Scanner(System.in);
-		//userInput.nextInt();
 		int tmp = userInput.nextInt();
 
 		if (tmp == 10 && stage == 0) {
 			exit = true;
 			goMainMenu = true;
-		}
-
-		if (tmp == 10 && stage == 1) {
+		} else if (tmp == 10 && stage == 1) {
 			goMainMenu = true;
 		}
 		userInput.reset();
-		
+
 		return tmp;
 		// return selected.get(tmp).getID();
 	}
@@ -67,19 +55,23 @@ public class MenuCreator implements MenuInterface {
 		this.showMainMenu();
 		int tmp = getUserInput(0);
 
-		if (tmp != 10)
-			this.selectedMenu = tmp;
-		else 
-			this.selectedMenu = 0;
+		if (tmp != 10) {
+			this.selectedMainMenu = tmp;
+			goMainMenu = false;
+		} else {
+			this.selectedMainMenu = -1;
+			goMainMenu = true;
+		}
 	}
 
 	public void getSelectUnderMenu() {
 		this.showFeatureMenu();
 		int tmp = getUserInput(1);
-		if (tmp != 10)
-			this.selectedMenu = tmp;
-		else 
-			this.selectedMenu = 0;
+		if (tmp != 10) {
+			this.selectedFeatureMenu = tmp;
+		} else {
+			this.selectedFeatureMenu = -1;
+		}
 	}
 
 	public boolean getMainMenu() {
@@ -88,5 +80,25 @@ public class MenuCreator implements MenuInterface {
 
 	public boolean getExit() {
 		return exit;
+	}
+
+	public boolean getFeaturepart() {
+		return featurepart;
+	}
+
+	public void show() throws SQLException {
+		System.out.println("[ ============= MENU ============= ]");
+		System.out.println("[ (GO BACK WITH OPTION [10]) ]");
+		while (getExit() == false) {
+			this.getSelectMainMenu();
+			while (getMainMenu() == false) {
+				this.getSelectUnderMenu();
+				while (getFeaturepart() == false) {
+					selectedfc.get(selectedMainMenu).runFeature(selectedFeatureMenu);
+					break;
+				}
+			}
+		}
+		System.out.println("Exit application... Bye!");
 	}
 }

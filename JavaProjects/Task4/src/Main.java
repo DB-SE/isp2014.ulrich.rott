@@ -9,26 +9,26 @@ public class Main {
 	public static void main(String[] args) throws SQLException {
 		System.out.println("Wilkommen beim Budgetcontrol");
 
-		String[] userInput = new String[2];
 		ArrayList<DataPlugin> features = new ArrayList<DataPlugin>();
+		ArrayList<FunctionInterface> featurefc = new ArrayList<FunctionInterface>();
 		
 		// Login
 		LoginManager LM = new LoginManager();
-		userInput = getUserInput();
-		LM.login(userInput[0], userInput[1]);
+		LM.login();
+		
 		
 		DataPlugin Login = new LoginManager();
+		FunctionInterface FctLogin = new FcLogin(LM);
 		
 		DataPlugin Account = new AccountManager(LM.getUid());
 		DataPlugin Transaction = new TransactionManager(LM.getUid());
 		DataPlugin User = new UserManager(LM.getUid());
 		
 		features.add(Login);
+		featurefc.add(FctLogin);
 		
 		features.add(Account);
-		
 		features.add(Transaction);
-		
 		features.add(User);
 		
 		// Show selected Features
@@ -36,38 +36,10 @@ public class Main {
 	
 		
 		//Show Menu
-		System.out.println("[ ============= MENU ============= ]");
-		System.out.println("[ (GO BACK WITH OPTION [10]) ]");
-		MenuCreator Menu = new MenuCreator(features);
-		boolean exit = false;
-		while(exit == false){
-			Menu.getSelectMainMenu();
-			boolean goMainMenu = false;
-			while(goMainMenu == false){
-				Menu.getSelectUnderMenu();
-				goMainMenu = Menu.getMainMenu();
-			}
-			exit = Menu.getExit();
-		}
-		System.out.println("Exit application");
+		MenuCreator Menu = new MenuCreator(features, featurefc);
+		Menu.show();
 	}
 
-	private static String[] getUserInput(){
-		String[] result = new String[2];
-		
-		System.out.print("User: ");
-		Scanner userInput = new Scanner(System.in);
-		result[0] = userInput.nextLine();
-        userInput.reset();
-        
-        System.out.print("Password: ");
-        Scanner passwordInput = new Scanner(System.in);
-        result[1] = userInput.nextLine();
-        userInput.reset();
-        System.out.println();
-        
-		return result;
-	}
 	
 	private static void showSelectedFeatures(ArrayList<DataPlugin> selected){
 		System.out.println("Unlocked Features:");
