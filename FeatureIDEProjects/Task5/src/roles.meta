@@ -1,0 +1,21 @@
+{
+	"features" : [
+		"Transaktion",
+		"tInsertion",
+		"Session",
+		"Login",
+		"Logout",
+		"Statistik",
+		"MonthOverview",
+		"DB_MYSQL",
+		"Accounts",
+		"aInsertion",
+		"Categories",
+		"cInsertion",
+		"Users",
+		"uInsertion"
+	],
+	"roles": {
+	}
+
+}
