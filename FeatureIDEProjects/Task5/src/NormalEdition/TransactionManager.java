@@ -58,25 +58,9 @@ public   class  TransactionManager  implements FeatureInterface {
 	}
 
 	
-	
-	 private ArrayList<String>  getFunctions__wrappee__tModification  () {
-		ArrayList<String> Functions = getFunctions__wrappee__tInsertion();
-		Functions.add("modify");
-		return Functions;
-	}
-
-	
-	
-	 private ArrayList<String>  getFunctions__wrappee__tDelete  () {
-		ArrayList<String> Functions = getFunctions__wrappee__tModification();
-		Functions.add("delete");
-		return Functions;
-	}
-
-	
 
 	public ArrayList<String> getFunctions() {
-		ArrayList<String> Functions = getFunctions__wrappee__tDelete();
+		ArrayList<String> Functions = getFunctions__wrappee__tInsertion();
 		Functions.add("show");
 		return Functions;
 	}
@@ -95,35 +79,6 @@ public   class  TransactionManager  implements FeatureInterface {
 		fillValues(ps, transaction);
 		ps.setInt(6, uid);
 		db.runStmt(ps);
-	}
-
-	
-	
-	public void mod(Transaction transactionOld, Transaction transactionNew) throws SQLException {
-		mod(transactionOld.getTid(), transactionNew);
-	}
-
-	
-	
-	public void mod(int oldtid, Transaction transaction) throws SQLException {
-		String stmt = "UPDATE transactions SET description = ?, amount = ?, date = ?, cid = ?, aid = ? WHERE tid = ?";
-		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-		fillValues(ps, transaction);
-		ps.setInt(6, oldtid);
-		db.runStmt(ps);
-	}
-
-	
-	public void delete(Transaction transaction) throws SQLException {
-		delete(transaction.getTid());
-	}
-
-	
-
-	public void delete(int tid) throws SQLException {
-		String stmt = "DELETE FROM transactions WHERE tid = ?";
-		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-		ps.setInt(1, tid);
 	}
 
 	

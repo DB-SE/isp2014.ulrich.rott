@@ -3,7 +3,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException; 
 import java.util.ArrayList; 
 
-public   class  AccountManager {
+public   class  AccountManager  implements FeatureInterface {
 	
 	private int uid  ;
 
@@ -28,6 +28,75 @@ public   class  AccountManager {
 		ps.setString(2, account.getAdescription());
 		ps.setFloat(3, account.getAamount());
 		return ps;
+	}
+
+	
+	
+	@Override
+	public String getTitle() {
+		return "AccountManager";
+	}
+
+	
+
+	@Override
+	public String getDescription() {
+		return "Manage of Accounts";
+	}
+
+	
+
+	
+	 private ArrayList<String>  getFunctions__wrappee__Accounts() {
+		ArrayList<String> Functions = new ArrayList<String>();
+		return Functions;
+	}
+
+	
+	
+	 private ArrayList<String>  getFunctions__wrappee__aInsertion  () {
+		ArrayList<String> Functions = getFunctions__wrappee__Accounts();
+		Functions.add("create");
+		return Functions;
+	}
+
+	
+	
+	 private ArrayList<String>  getFunctions__wrappee__aModification  () {
+		ArrayList<String> Functions = getFunctions__wrappee__aInsertion();
+		Functions.add("modify");
+		return Functions;
+	}
+
+	
+	
+	 private ArrayList<String>  getFunctions__wrappee__aDelete  () {
+		ArrayList<String> Functions = getFunctions__wrappee__aModification();
+		Functions.add("delete");
+		return Functions;
+	}
+
+	
+	
+	 private ArrayList<String>  getFunctions__wrappee__aTransfer  () {
+		ArrayList<String> Functions = getFunctions__wrappee__aDelete();
+		Functions.add("transfer");
+		return Functions;
+	}
+
+	
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = getFunctions__wrappee__aTransfer();
+		Functions.add("show");
+		return Functions;
+	}
+
+	
+
+	@Override
+	public int getID() {
+		return 1;
 	}
 
 	

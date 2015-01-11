@@ -11,4 +11,10 @@ public class AccountManager {
 		ps.setInt(4, uid);
 		db.runStmt(ps);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("create");
+		return Functions;
+	}
 }

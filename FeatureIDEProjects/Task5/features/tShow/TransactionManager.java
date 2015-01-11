@@ -10,4 +10,10 @@ public class TransactionManager {
 		// TODO
 		db.runStmt(ps);
 	}
+
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("show");
+		return Functions;
+	}
 }

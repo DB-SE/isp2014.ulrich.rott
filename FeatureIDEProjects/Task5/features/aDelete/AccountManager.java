@@ -17,4 +17,10 @@ public class AccountManager {
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
 		ps.setInt(1, aid);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("delete");
+		return Functions;
+	}
 }

@@ -50,25 +50,9 @@ public   class  UserManager  implements FeatureInterface {
 
 	
 	
-	 private ArrayList<String>  getFunctions__wrappee__uInsertion  () {
+	public ArrayList<String> getFunctions() {
 		ArrayList<String> Functions = getFunctions__wrappee__Users();
 		Functions.add("insert");
-		return Functions;
-	}
-
-	
-	
-	 private ArrayList<String>  getFunctions__wrappee__uModification  () {
-		ArrayList<String> Functions = getFunctions__wrappee__uInsertion();
-		Functions.add("modify");
-		return Functions;
-	}
-
-	
-	
-	public ArrayList<String> getFunctions() {
-		ArrayList<String> Functions = getFunctions__wrappee__uModification();
-		Functions.add("delete");
 		return Functions;
 	}
 
@@ -85,34 +69,6 @@ public   class  UserManager  implements FeatureInterface {
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
 		fillValues(ps, user);
 		db.runStmt(ps);
-	}
-
-	
-	public void mod(User userOld, User userNew) throws SQLException {
-		mod(userOld.getUid(), userNew);
-	}
-
-	
-
-	public void mod(int uidOld, User userNew) throws SQLException {
-		String stmt = "UPDATE users SET username = ?, realname = ?, email = ?, password = ? WHERE uid = ?";
-		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-		fillValues(ps, userNew);
-		ps.setInt(5, uidOld);
-		db.runStmt(ps);
-	}
-
-	
-	public void delete(User user) throws SQLException {
-		delete(user.getUid());
-	}
-
-	
-
-	public void delete(int uid) throws SQLException {
-		String stmt = "DELETE FROM users WHERE uid = ?";
-		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-		ps.setInt(1, uid);
 	}
 
 	

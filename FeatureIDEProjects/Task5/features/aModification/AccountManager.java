@@ -15,4 +15,10 @@ public class AccountManager {
 		ps.setInt(4, aidOld);
 		db.runStmt(ps);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("modify");
+		return Functions;
+	}
 }

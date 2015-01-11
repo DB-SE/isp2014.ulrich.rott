@@ -12,4 +12,10 @@ public class TransactionManager {
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
 		ps.setInt(1, tid);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("delete");
+		return Functions;
+	}
 }

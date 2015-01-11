@@ -19,15 +19,11 @@ public class Main {
 
 	public static ArrayList<FeatureInterface> loadFeatures(){
 		ArrayList<FeatureInterface> features = new ArrayList<FeatureInterface>();
-		FeatureInterface Login = new LoginManager();
-		features.add(Login);
 		return features;
 	}
 	
 	public static ArrayList<FunctionInterface> loadFunctions(ArrayList<FeatureInterface> features){
 		ArrayList<FunctionInterface> featurefc = new ArrayList<FunctionInterface>();
-		FunctionInterface FctLogin = new FcLogin((LoginManager) features.get(features.size() - 1));
-		featurefc.add(FctLogin);
 		return featurefc;
 	}
 	

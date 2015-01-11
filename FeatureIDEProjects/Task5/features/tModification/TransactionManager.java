@@ -15,4 +15,10 @@ public class TransactionManager {
 		ps.setInt(6, oldtid);
 		db.runStmt(ps);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("modify");
+		return Functions;
+	}
 }

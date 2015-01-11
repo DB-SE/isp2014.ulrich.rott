@@ -2,7 +2,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class UserManager {
+public class UserManager implements FeatureInterface{
 	private int uid;
 	private dbConnector db;
 
@@ -17,5 +17,26 @@ public class UserManager {
 		ps.setString(3, user.getEmail());
 		ps.setString(4, user.getPassword());
 		return ps;
+	}
+	
+	@Override
+	public String getTitle() {
+		return "UserManager";
+	}
+
+	@Override
+	public String getDescription() {
+		return "Manger of registred Users";
+	}
+
+	@Override
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = new ArrayList<String>();
+		return Functions;
+	}
+
+	@Override
+	public int getID() {
+		return 3;
 	}
 }

@@ -11,4 +11,10 @@ public class AccountManager {
 		tm.createNew(ta1);
 		tm.createNew(ta2);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("transfer");
+		return Functions;
+	}
 }

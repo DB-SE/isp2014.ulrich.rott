@@ -14,4 +14,10 @@ public class UserManager {
 		ps.setInt(5, uidOld);
 		db.runStmt(ps);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("modify");
+		return Functions;
+	}
 }

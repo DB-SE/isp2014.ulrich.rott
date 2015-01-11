@@ -33,10 +33,6 @@ public class TransactionManager implements FeatureInterface {
 	@Override
 	public ArrayList<String> getFunctions() {
 		ArrayList<String> Functions = new ArrayList<String>();
-		Functions.add("show");
-		Functions.add("create");
-		Functions.add("modify");
-		Functions.add("delete");
 		return Functions;
 	}
 

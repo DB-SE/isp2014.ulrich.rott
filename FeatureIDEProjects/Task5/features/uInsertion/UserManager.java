@@ -9,4 +9,10 @@ public class UserManager {
 		fillValues(ps, user);
 		db.runStmt(ps);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("insert");
+		return Functions;
+	}
 }

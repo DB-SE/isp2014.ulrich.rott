@@ -10,4 +10,10 @@ public class TransactionManager {
 		ps.setInt(6, uid);
 		db.runStmt(ps);
 	}
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = original();
+		Functions.add("create");
+		return Functions;
+	}
 }
