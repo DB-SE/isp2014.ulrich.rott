@@ -2,20 +2,455 @@
 	"features" : [
 		"Transaktion",
 		"tInsertion",
+		"tModification",
+		"tDelete",
 		"Session",
 		"Login",
 		"Logout",
 		"Statistik",
+		"YearOverview",
 		"MonthOverview",
+		"AccountsOverview",
+		"CategoriesOverview",
 		"DB_MYSQL",
 		"Accounts",
 		"aInsertion",
+		"aModification",
+		"aDelete",
+		"aTransfer",
 		"Categories",
 		"cInsertion",
+		"cModification",
+		"cDelete",
 		"Users",
-		"uInsertion"
+		"uInsertion",
+		"uModification",
+		"uDelete",
+		"Base"
 	],
 	"roles": {
+		"getConnection": {
+			"Transaktion": "getConnection",
+			"DB_MYSQL": "getConnection"
+		},
+		"runStmt": {
+			"Transaktion": "runStmt",
+			"DB_MYSQL": "runStmt"
+		},
+		"getTitle": {
+			"Transaktion": "getTitle",
+			"tInsertion": "getTitle",
+			"Categories": "getTitle",
+			"Accounts": "getTitle",
+			"aInsertion": "getTitle",
+			"aModification": "getTitle",
+			"aDelete": "getTitle",
+			"aTransfer": "getTitle",
+			"Session": "getTitle",
+			"Login": "getTitle",
+			"Logout": "getTitle",
+			"Users": "getTitle",
+			"Base": "getTitle"
+		},
+		"getDescription": {
+			"Transaktion": "getDescription",
+			"tInsertion": "getDescription",
+			"Accounts": "getDescription",
+			"aInsertion": "getDescription",
+			"aModification": "getDescription",
+			"aDelete": "getDescription",
+			"aTransfer": "getDescription",
+			"Session": "getDescription",
+			"Login": "getDescription",
+			"Logout": "getDescription",
+			"Users": "getDescription",
+			"Base": "getDescription"
+		},
+		"getID": {
+			"Transaktion": "getID",
+			"tInsertion": "getID",
+			"Accounts": "getID",
+			"aInsertion": "getID",
+			"aModification": "getID",
+			"aDelete": "getID",
+			"aTransfer": "getID",
+			"Session": "getID",
+			"Login": "getID",
+			"Logout": "getID",
+			"Users": "getID",
+			"Base": "getID"
+		},
+		"getFunctions": {
+			"Transaktion": "getFunctions",
+			"tInsertion": "getFunctions",
+			"Accounts": "getFunctions",
+			"aInsertion": "getFunctions",
+			"aModification": "getFunctions",
+			"aDelete": "getFunctions",
+			"aTransfer": "getFunctions",
+			"Session": "getFunctions",
+			"Login": "getFunctions",
+			"Logout": "getFunctions",
+			"Users": "getFunctions",
+			"Base": "getFunctions"
+		},
+		"runFeature": {
+			"Transaktion": "runFeature",
+			"Base": "runFeature",
+			"Session": "runFeature",
+			"Accounts": "runFeature"
+		},
+		"getTid": {
+			"Transaktion": "getTid"
+		},
+		"setTid": {
+			"Transaktion": "setTid"
+		},
+		"setDescription": {
+			"Transaktion": "setDescription"
+		},
+		"getAmount": {
+			"Transaktion": "getAmount"
+		},
+		"setAmount": {
+			"Transaktion": "setAmount"
+		},
+		"getDate": {
+			"Transaktion": "getDate"
+		},
+		"setDate": {
+			"Transaktion": "setDate"
+		},
+		"getCid": {
+			"Transaktion": "getCid",
+			"Categories": "getCid"
+		},
+		"setCid": {
+			"Transaktion": "setCid",
+			"Categories": "setCid"
+		},
+		"getUid": {
+			"Transaktion": "getUid",
+			"Accounts": "getUid",
+			"Users": "getUid",
+			"Session": "getUid",
+			"Login": "getUid",
+			"Logout": "getUid"
+		},
+		"setUid": {
+			"Transaktion": "setUid",
+			"Accounts": "setUid",
+			"Users": "setUid"
+		},
+		"getDate_added": {
+			"Transaktion": "getDate_added"
+		},
+		"setDate_added": {
+			"Transaktion": "setDate_added"
+		},
+		"getAid": {
+			"Transaktion": "getAid",
+			"Accounts": "getAid"
+		},
+		"setAid": {
+			"Transaktion": "setAid",
+			"Accounts": "setAid"
+		},
+		"fillValues": {
+			"Transaktion": "fillValues",
+			"tInsertion": "fillValues",
+			"Accounts": "fillValues",
+			"aInsertion": "fillValues",
+			"aModification": "fillValues",
+			"aDelete": "fillValues",
+			"aTransfer": "fillValues",
+			"Users": "fillValues",
+			"uInsertion": "fillValues",
+			"uModification": "fillValues",
+			"uDelete": "fillValues"
+		},
+		"isoTaShow": {
+			"Transaktion": "isoTaShow"
+		},
+		"setoTaInsert": {
+			"Transaktion": "setoTaInsert"
+		},
+		"isoWrite": {
+			"Transaktion": "isoWrite"
+		},
+		"setoWrite": {
+			"Transaktion": "setoWrite"
+		},
+		"isoRead": {
+			"Transaktion": "isoRead"
+		},
+		"setoRead": {
+			"Transaktion": "setoRead"
+		},
+		"getUrl": {
+			"Transaktion": "getUrl"
+		},
+		"getUser": {
+			"Transaktion": "getUser"
+		},
+		"getPassword": {
+			"Transaktion": "getPassword",
+			"Users": "getPassword"
+		},
+		"isoTransaction": {
+			"Transaktion": "isoTransaction"
+		},
+		"isoTaInsert": {
+			"Transaktion": "isoTaInsert"
+		},
+		"isoTaMod": {
+			"Transaktion": "isoTaMod"
+		},
+		"setoTaMod": {
+			"Transaktion": "setoTaMod"
+		},
+		"isoTaDel": {
+			"Transaktion": "isoTaDel"
+		},
+		"setoTaDel": {
+			"Transaktion": "setoTaDel"
+		},
+		"isoAccount": {
+			"Transaktion": "isoAccount"
+		},
+		"setoAccount": {
+			"Transaktion": "setoAccount"
+		},
+		"isoAtInsert": {
+			"Transaktion": "isoAtInsert"
+		},
+		"setoAtInsert": {
+			"Transaktion": "setoAtInsert"
+		},
+		"isoAtMod": {
+			"Transaktion": "isoAtMod"
+		},
+		"setoAtMod": {
+			"Transaktion": "setoAtMod"
+		},
+		"isoAtDel": {
+			"Transaktion": "isoAtDel"
+		},
+		"setoAtDel": {
+			"Transaktion": "setoAtDel"
+		},
+		"isoCategory": {
+			"Transaktion": "isoCategory"
+		},
+		"setoCategory": {
+			"Transaktion": "setoCategory"
+		},
+		"isoCyInsert": {
+			"Transaktion": "isoCyInsert"
+		},
+		"setoCyInsert": {
+			"Transaktion": "setoCyInsert"
+		},
+		"isoCyMod": {
+			"Transaktion": "isoCyMod"
+		},
+		"setoCyMod": {
+			"Transaktion": "setoCyMod"
+		},
+		"isoCyDel": {
+			"Transaktion": "isoCyDel"
+		},
+		"setoCyDel": {
+			"Transaktion": "setoCyDel"
+		},
+		"isoUser": {
+			"Transaktion": "isoUser"
+		},
+		"getAtitle": {
+			"Accounts": "getAtitle"
+		},
+		"setAtitle": {
+			"Accounts": "setAtitle"
+		},
+		"getAdescription": {
+			"Accounts": "getAdescription"
+		},
+		"setAdescription": {
+			"Accounts": "setAdescription"
+		},
+		"getAamount": {
+			"Accounts": "getAamount"
+		},
+		"setAamount": {
+			"Accounts": "setAamount"
+		},
+		"setTitle": {
+			"Categories": "setTitle"
+		},
+		"getTypeid": {
+			"Categories": "getTypeid"
+		},
+		"setTypeid": {
+			"Categories": "setTypeid"
+		},
+		"getCdescription": {
+			"Categories": "getCdescription"
+		},
+		"setCdescription": {
+			"Categories": "setCdescription"
+		},
+		"getCuid": {
+			"Categories": "getCuid"
+		},
+		"setCuid": {
+			"Categories": "setCuid"
+		},
+		"getUsername": {
+			"Users": "getUsername"
+		},
+		"setUsername": {
+			"Users": "setUsername"
+		},
+		"getRealname": {
+			"Users": "getRealname"
+		},
+		"setRealname": {
+			"Users": "setRealname"
+		},
+		"getEmail": {
+			"Users": "getEmail"
+		},
+		"setEmail": {
+			"Users": "setEmail"
+		},
+		"setPassword": {
+			"Users": "setPassword"
+		},
+		"show": {
+			"tInsertion": "show",
+			"Accounts": "show",
+			"aInsertion": "show",
+			"aModification": "show",
+			"aDelete": "show",
+			"aTransfer": "show",
+			"Users": "show",
+			"uInsertion": "show",
+			"uModification": "show",
+			"uDelete": "show",
+			"MenuCreator": "show",
+			"Base": "show"
+		},
+		"createNew": {
+			"tInsertion": "createNew",
+			"Accounts": "createNew",
+			"aInsertion": "createNew",
+			"aModification": "createNew",
+			"aDelete": "createNew",
+			"aTransfer": "createNew",
+			"Users": "createNew",
+			"uInsertion": "createNew",
+			"uModification": "createNew",
+			"uDelete": "createNew"
+		},
+		"mod": {
+			"tInsertion": "mod",
+			"tModification": "mod",
+			"Accounts": "mod",
+			"aInsertion": "mod",
+			"aModification": "mod",
+			"aDelete": "mod",
+			"aTransfer": "mod",
+			"Users": "mod",
+			"uInsertion": "mod",
+			"uModification": "mod",
+			"uDelete": "mod"
+		},
+		"delete": {
+			"tInsertion": "delete",
+			"tDelete": "delete",
+			"Accounts": "delete",
+			"aInsertion": "delete",
+			"aModification": "delete",
+			"aDelete": "delete",
+			"aTransfer": "delete",
+			"Users": "delete",
+			"uInsertion": "delete",
+			"uModification": "delete",
+			"uDelete": "delete"
+		},
+		"transfer": {
+			"Accounts": "transfer",
+			"aInsertion": "transfer",
+			"aModification": "transfer",
+			"aDelete": "transfer",
+			"aTransfer": "transfer"
+		},
+		"login": {
+			"Session": "login",
+			"Login": "login",
+			"Logout": "login"
+		},
+		"logout": {
+			"Session": "logout",
+			"Login": "logout",
+			"Logout": "logout"
+		},
+		"getStatus": {
+			"Session": "getStatus",
+			"Login": "getStatus",
+			"Logout": "getStatus"
+		},
+		"checkPassword": {
+			"Session": "checkPassword",
+			"Login": "checkPassword",
+			"Logout": "checkPassword"
+		},
+		"getUserInput": {
+			"Session": "getUserInput",
+			"Login": "getUserInput",
+			"Logout": "getUserInput",
+			"MenuCreator": "getUserInput",
+			"Base": "getUserInput"
+		},
+		"main": {
+			"MenuCreator": "main",
+			"Base": "main"
+		},
+		"showSelectedFeatures": {
+			"MenuCreator": "showSelectedFeatures",
+			"Base": "showSelectedFeatures"
+		},
+		"showMainMenu": {
+			"MenuCreator": "showMainMenu",
+			"Base": "showMainMenu"
+		},
+		"showFeatureMenu": {
+			"MenuCreator": "showFeatureMenu",
+			"Base": "showFeatureMenu"
+		},
+		"getSelectMainMenu": {
+			"MenuCreator": "getSelectMainMenu",
+			"Base": "getSelectMainMenu"
+		},
+		"getSelectUnderMenu": {
+			"MenuCreator": "getSelectUnderMenu",
+			"Base": "getSelectUnderMenu"
+		},
+		"getMainMenu": {
+			"MenuCreator": "getMainMenu",
+			"Base": "getMainMenu"
+		},
+		"getExit": {
+			"MenuCreator": "getExit",
+			"Base": "getExit"
+		},
+		"getFeaturepart": {
+			"MenuCreator": "getFeaturepart",
+			"Base": "getFeaturepart"
+		},
+		"getAccess": {
+			"Base": "getAccess"
+		}
 	}
 
 }

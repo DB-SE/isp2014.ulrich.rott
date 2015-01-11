@@ -82,6 +82,7 @@
 					<feature name="uModification"/>
 					<feature name="uDelete"/>
 				</and>
+				<feature mandatory="true" name="Base"/>
 			</and>
 		</struct>
 		<constraints>
