@@ -3,7 +3,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LoginManager implements FeatureInterface {
+public class LoginManager {
 	public void login() throws SQLException {
 		String[] userInput = new String[2];
 		userInput = getUserInput();
@@ -45,28 +45,9 @@ public class LoginManager implements FeatureInterface {
 		return result;
 	}
 	
-	@Override
-	public String getTitle() {
-		return "LoginManager";
-	}
-
-	@Override
-	public String getDescription() {
-		return "Manager of accesss";
-	}
-
-	@Override
 	public ArrayList<String> getFunctions() {
-		ArrayList<String> Functions = new ArrayList<String>();
+		ArrayList<String> Functions = original();
 		Functions.add("login");
-		Functions.add("logout");
-		Functions.add("getUid");
-		Functions.add("getStatus");
 		return Functions;
-	}
-
-	@Override
-	public int getID() {
-		return 0;
 	}
 }

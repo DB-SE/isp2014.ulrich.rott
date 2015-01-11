@@ -93,27 +93,42 @@
 			"uShow": "getID"
 		},
 		"getFunctions": {
-			"Transaktion": "getFunctions",
-			"tInsertion": "getFunctions",
-			"Accounts": "getFunctions",
-			"aInsertion": "getFunctions",
-			"aModification": "getFunctions",
-			"aDelete": "getFunctions",
-			"aTransfer": "getFunctions",
-			"Session": "getFunctions",
-			"Login": "getFunctions",
+			"Transaktion": "getFunctions__wrappee__Session",
+			"tInsertion": "getFunctions__wrappee__Session",
+			"Accounts": "getFunctions__wrappee__Session",
+			"aInsertion": "getFunctions__wrappee__Session",
+			"aModification": "getFunctions__wrappee__Session",
+			"aDelete": "getFunctions__wrappee__Session",
+			"aTransfer": "getFunctions__wrappee__Session",
+			"Session": "getFunctions__wrappee__Session",
+			"Login": "getFunctions__wrappee__Login",
 			"Logout": "getFunctions",
-			"Users": "getFunctions",
-			"Base": "getFunctions",
-			"tShow": "getFunctions",
-			"aShow": "getFunctions",
-			"uShow": "getFunctions"
+			"Users": "getFunctions__wrappee__Session",
+			"Base": "getFunctions__wrappee__Session",
+			"tShow": "getFunctions__wrappee__Session",
+			"aShow": "getFunctions__wrappee__Session",
+			"uShow": "getFunctions__wrappee__Session"
 		},
 		"runFeature": {
-			"Transaktion": "runFeature",
-			"Base": "runFeature",
-			"Session": "runFeature",
-			"Accounts": "runFeature"
+			"Transaktion": "runFeature__wrappee__Transaktion",
+			"Base": "runFeature__wrappee__Transaktion",
+			"Session": "runFeature__wrappee__Session",
+			"Accounts": "runFeature__wrappee__Transaktion",
+			"Login": "runFeature__wrappee__Login",
+			"Logout": "runFeature__wrappee__aInsertion",
+			"tInsertion": "runFeature__wrappee__tInsertion",
+			"tModification": "runFeature__wrappee__tModification",
+			"tDelete": "runFeature__wrappee__tDelete",
+			"tShow": "runFeature__wrappee__Session",
+			"Users": "runFeature__wrappee__Users",
+			"uInsertion": "runFeature__wrappee__uInsertion",
+			"uModification": "runFeature__wrappee__uModification",
+			"uDelete": "runFeature",
+			"aInsertion": "runFeature__wrappee__aInsertion",
+			"aModification": "runFeature__wrappee__aModification",
+			"aDelete": "runFeature__wrappee__aDelete",
+			"aTransfer": "runFeature__wrappee__aTransfer",
+			"aShow": "runFeature__wrappee__Users"
 		},
 		"getTid": {
 			"Transaktion": "getTid"
@@ -484,6 +499,12 @@
 		},
 		"getAccess": {
 			"Base": "getAccess"
+		},
+		"loadFeatures": {
+			"Base": "loadFeatures"
+		},
+		"loadFunctions": {
+			"Base": "loadFunctions"
 		}
 	}
 

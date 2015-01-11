@@ -5,25 +5,20 @@ import java.util.Scanner;
 
 public   class  LoginManager  implements FeatureInterface {
 	
-	private int uid  ;
+	private int uid;
 
 	
-	private String username  ;
+	private String username;
 
 	
-	private boolean status  ;
+	private boolean status;
 
 	
-	private dbConnector db  ;
+	private dbConnector db;
 
 	
 
-	public LoginManager  () {
-		this.uid = -1;
-		this.username = "NOT SET";
-		this.status = false;
-		this.db = new dbConnector();
-	
+	public LoginManager() {
 		this.uid = -1;
 		this.username = "NOT SET";
 		this.status = false;
@@ -48,8 +43,63 @@ public   class  LoginManager  implements FeatureInterface {
 	}
 
 	
+	
+	@Override
+	public String getTitle() {
+		return "LoginManager";
+	}
 
-	private int checkPassword  (String password) throws SQLException {
+	
+
+	@Override
+	public String getDescription() {
+		return "Manager of accesss";
+	}
+
+	
+	
+	@Override
+	public int getID(){
+		return 2;
+	}
+
+	
+	
+	
+	 private ArrayList<String>  getFunctions__wrappee__Session() {
+		ArrayList<String> Functions = new ArrayList<String>();
+		Functions.add("getUid");
+		Functions.add("getStatus");
+		return Functions;
+	}
+
+	
+	
+	 private ArrayList<String>  getFunctions__wrappee__Login  () {
+		ArrayList<String> Functions = getFunctions__wrappee__Session();
+		Functions.add("login");
+		return Functions;
+	}
+
+	
+	
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = getFunctions__wrappee__Login();
+		Functions.add("logout");
+		return Functions;
+	}
+
+	
+	public void login() throws SQLException {
+		String[] userInput = new String[2];
+		userInput = getUserInput();
+		this.username = userInput[0];
+		uid = checkPassword(userInput[1]);
+	}
+
+	
+
+	private int checkPassword(String password) throws SQLException {
 		/*
 		 * String stmt = "SELECT password, uid FROM users WHERE username = ?";
 		 * PreparedStatement ps = db.getConnection().prepareStatement(stmt);
@@ -64,14 +114,6 @@ public   class  LoginManager  implements FeatureInterface {
 		 * } else { System.out.println("- login failed -"); status = false }
 		 */
 		return DBuID;
-	}
-
-	
-	public void login() throws SQLException {
-		String[] userInput = new String[2];
-		userInput = getUserInput();
-		this.username = userInput[0];
-		uid = checkPassword(userInput[1]);
 	}
 
 	
@@ -94,40 +136,6 @@ public   class  LoginManager  implements FeatureInterface {
 	}
 
 	
-	
-	@Override
-	public String getTitle() {
-		return "LoginManager";
-	}
-
-	
-
-	@Override
-	public String getDescription() {
-		return "Manager of accesss";
-	}
-
-	
-
-	@Override
-	public ArrayList<String> getFunctions() {
-		ArrayList<String> Functions = new ArrayList<String>();
-		Functions.add("login");
-		Functions.add("logout");
-		Functions.add("getUid");
-		Functions.add("getStatus");
-		return Functions;
-	}
-
-	
-
-	@Override
-	public int getID() {
-		return 0;
-	}
-
-	
-
 	public void logout() {
 		status = false;
 		System.out.println("Logout success!");

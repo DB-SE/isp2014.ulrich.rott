@@ -3,7 +3,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LoginManager {
+public class LoginManager implements FeatureInterface{
 	private int uid;
 	private String username;
 	private boolean status;
@@ -28,21 +28,27 @@ public class LoginManager {
 	public int getUid() {
 		return uid;
 	}
+	
+	@Override
+	public String getTitle() {
+		return "LoginManager";
+	}
 
-	private int checkPassword(String password) throws SQLException {
-		/*
-		 * String stmt = "SELECT password, uid FROM users WHERE username = ?";
-		 * PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-		 * ps.setString(1, username); db.runStmt(ps);
-		 */
-		// TODO get uid from Database
-		int DBuID = 100;
-		// if (ps.getResultSet().getString(0) == password){
-		status = true;
-		System.out.println("\t\t- login success -");
-		/*
-		 * } else { System.out.println("- login failed -"); status = false }
-		 */
-		return DBuID;
+	@Override
+	public String getDescription() {
+		return "Manager of accesss";
+	}
+	
+	@Override
+	public int getID(){
+		return 2;
+	}
+	
+	@Override
+	public ArrayList<String> getFunctions() {
+		ArrayList<String> Functions = new ArrayList<String>();
+		Functions.add("getUid");
+		Functions.add("getStatus");
+		return Functions;
 	}
 }
