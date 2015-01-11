@@ -28,7 +28,7 @@ public   class  TransactionManager  implements FeatureInterface {
 	}
 
 	
-	
+
 	@Override
 	public String getTitle() {
 		return "TransactionsManager";
@@ -96,6 +96,15 @@ public   class  TransactionManager  implements FeatureInterface {
 		String stmt = "DELETE FROM transactions WHERE tid = ?";
 		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
 		ps.setInt(1, tid);
+	}
+
+	
+	public void show(int tid) throws SQLException {
+		String stmt = "SELECT * FROM transactions WHERE tid = ?";
+		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
+		ps.setInt(1, tid);
+		// TODO
+		db.runStmt(ps);
 	}
 
 

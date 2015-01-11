@@ -18,6 +18,7 @@
 							delete an existing transaction
 						</description>
 					</feature>
+					<feature name="tShow"/>
 				</and>
 				<and mandatory="true" name="Session">
 					<feature mandatory="true" name="Login">
@@ -59,6 +60,7 @@
 							transfer a value from one account to an other
 						</description>
 					</feature>
+					<feature name="aShow"/>
 				</and>
 				<and name="Categories">
 					<feature mandatory="true" name="cInsertion">
@@ -81,6 +83,7 @@
 					<feature mandatory="true" name="uInsertion"/>
 					<feature name="uModification"/>
 					<feature name="uDelete"/>
+					<feature name="uShow"/>
 				</and>
 				<feature mandatory="true" name="Base"/>
 			</and>
@@ -96,6 +99,27 @@
 				<imp>
 					<var>CategoriesOverview</var>
 					<var>Categories</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<disj>
+						<var>YearOverview</var>
+						<var>MonthOverview</var>
+					</disj>
+					<conj>
+						<var>uShow</var>
+						<conj>
+							<var>tShow</var>
+							<var>aShow</var>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>AccountsOverview</var>
+					<var>aShow</var>
 				</imp>
 			</rule>
 		</constraints>

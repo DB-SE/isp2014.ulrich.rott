@@ -4,6 +4,7 @@
 		"tInsertion",
 		"tModification",
 		"tDelete",
+		"tShow",
 		"Session",
 		"Login",
 		"Logout",
@@ -18,6 +19,7 @@
 		"aModification",
 		"aDelete",
 		"aTransfer",
+		"aShow",
 		"Categories",
 		"cInsertion",
 		"cModification",
@@ -26,6 +28,7 @@
 		"uInsertion",
 		"uModification",
 		"uDelete",
+		"uShow",
 		"Base"
 	],
 	"roles": {
@@ -50,7 +53,10 @@
 			"Login": "getTitle",
 			"Logout": "getTitle",
 			"Users": "getTitle",
-			"Base": "getTitle"
+			"Base": "getTitle",
+			"tShow": "getTitle",
+			"aShow": "getTitle",
+			"uShow": "getTitle"
 		},
 		"getDescription": {
 			"Transaktion": "getDescription",
@@ -64,7 +70,10 @@
 			"Login": "getDescription",
 			"Logout": "getDescription",
 			"Users": "getDescription",
-			"Base": "getDescription"
+			"Base": "getDescription",
+			"tShow": "getDescription",
+			"aShow": "getDescription",
+			"uShow": "getDescription"
 		},
 		"getID": {
 			"Transaktion": "getID",
@@ -78,7 +87,10 @@
 			"Login": "getID",
 			"Logout": "getID",
 			"Users": "getID",
-			"Base": "getID"
+			"Base": "getID",
+			"tShow": "getID",
+			"aShow": "getID",
+			"uShow": "getID"
 		},
 		"getFunctions": {
 			"Transaktion": "getFunctions",
@@ -92,7 +104,10 @@
 			"Login": "getFunctions",
 			"Logout": "getFunctions",
 			"Users": "getFunctions",
-			"Base": "getFunctions"
+			"Base": "getFunctions",
+			"tShow": "getFunctions",
+			"aShow": "getFunctions",
+			"uShow": "getFunctions"
 		},
 		"runFeature": {
 			"Transaktion": "runFeature",
@@ -167,7 +182,10 @@
 			"Users": "fillValues",
 			"uInsertion": "fillValues",
 			"uModification": "fillValues",
-			"uDelete": "fillValues"
+			"uDelete": "fillValues",
+			"tShow": "fillValues",
+			"aShow": "fillValues",
+			"uShow": "fillValues"
 		},
 		"isoTaShow": {
 			"Transaktion": "isoTaShow"
@@ -188,14 +206,17 @@
 			"Transaktion": "setoRead"
 		},
 		"getUrl": {
-			"Transaktion": "getUrl"
+			"Transaktion": "getUrl",
+			"DB_MYSQL": "getUrl"
 		},
 		"getUser": {
-			"Transaktion": "getUser"
+			"Transaktion": "getUser",
+			"DB_MYSQL": "getUser"
 		},
 		"getPassword": {
 			"Transaktion": "getPassword",
-			"Users": "getPassword"
+			"Users": "getPassword",
+			"DB_MYSQL": "getPassword"
 		},
 		"isoTransaction": {
 			"Transaktion": "isoTransaction"
@@ -338,7 +359,10 @@
 			"uModification": "show",
 			"uDelete": "show",
 			"MenuCreator": "show",
-			"Base": "show"
+			"Base": "show",
+			"tShow": "show",
+			"aShow": "show",
+			"uShow": "show"
 		},
 		"createNew": {
 			"tInsertion": "createNew",
@@ -350,7 +374,10 @@
 			"Users": "createNew",
 			"uInsertion": "createNew",
 			"uModification": "createNew",
-			"uDelete": "createNew"
+			"uDelete": "createNew",
+			"tShow": "createNew",
+			"aShow": "createNew",
+			"uShow": "createNew"
 		},
 		"mod": {
 			"tInsertion": "mod",
@@ -363,7 +390,10 @@
 			"Users": "mod",
 			"uInsertion": "mod",
 			"uModification": "mod",
-			"uDelete": "mod"
+			"uDelete": "mod",
+			"tShow": "mod",
+			"aShow": "mod",
+			"uShow": "mod"
 		},
 		"delete": {
 			"tInsertion": "delete",
@@ -376,14 +406,18 @@
 			"Users": "delete",
 			"uInsertion": "delete",
 			"uModification": "delete",
-			"uDelete": "delete"
+			"uDelete": "delete",
+			"tShow": "delete",
+			"aShow": "delete",
+			"uShow": "delete"
 		},
 		"transfer": {
 			"Accounts": "transfer",
 			"aInsertion": "transfer",
 			"aModification": "transfer",
 			"aDelete": "transfer",
-			"aTransfer": "transfer"
+			"aTransfer": "transfer",
+			"aShow": "transfer"
 		},
 		"login": {
 			"Session": "login",

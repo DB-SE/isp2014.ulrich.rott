@@ -19,7 +19,7 @@ public class TransactionManager implements FeatureInterface {
 		ps.setInt(5, transaction.getAid());
 		return ps;
 	}
-	
+
 	@Override
 	public String getTitle() {
 		return "TransactionsManager";

@@ -62,5 +62,14 @@ public   class  UserManager {
 		ps.setInt(1, uid);
 	}
 
+	
+	public void show(int uid) throws SQLException {
+		String stmt = "SELECT * FROM users WHERE uid = ?";
+		PreparedStatement ps = db.getConnection().prepareStatement(stmt);
+		ps.setInt(1, uid);
+		// TODO
+		db.runStmt(ps);
+	}
+
 
 }
