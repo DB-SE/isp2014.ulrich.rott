@@ -40,15 +40,15 @@ public class UserManager {
     //#endif
 
     //#ifdef uDelete
-    public void delete(User user) throws SQLException {
-        delete(user.getUid());
-    }
-
-    public void delete(int uid) throws SQLException{
-        String stmt = "DELETE FROM users WHERE uid = ?";
-        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-        ps.setInt(1, uid);
-    }
+//@    public void delete(User user) throws SQLException {
+//@        delete(user.getUid());
+//@    }
+//@
+//@    public void delete(int uid) throws SQLException{
+//@        String stmt = "DELETE FROM users WHERE uid = ?";
+//@        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
+//@        ps.setInt(1, uid);
+//@    }
     //#endif
 
     private PreparedStatement fillValues(PreparedStatement ps, User user) throws SQLException{

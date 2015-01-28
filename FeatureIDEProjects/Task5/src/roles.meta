@@ -1,5 +1,6 @@
 {
 	"features" : [
+		"Base",
 		"Transaktion",
 		"tInsertion",
 		"tShow",
@@ -16,44 +17,36 @@
 		"cInsertion",
 		"Users",
 		"uInsertion",
-		"uShow",
-		"Base"
+		"uShow"
 	],
 	"roles": {
 		"runFeature": {
 			"Transaktion": "runFeature__wrappee__Transaktion",
 			"tInsertion": "runFeature__wrappee__tInsertion",
-			"tModification": "runFeature__wrappee__tModification",
-			"tDelete": "runFeature__wrappee__tDelete",
-			"tShow": "runFeature__wrappee__Session",
 			"Session": "runFeature__wrappee__Session",
 			"Login": "runFeature__wrappee__Login",
 			"Logout": "runFeature__wrappee__aInsertion",
+			"Base": "runFeature__wrappee__Transaktion",
+			"tShow": "runFeature__wrappee__Session",
 			"Accounts": "runFeature__wrappee__Transaktion",
 			"aInsertion": "runFeature__wrappee__aInsertion",
-			"aModification": "runFeature__wrappee__aModification",
-			"aDelete": "runFeature__wrappee__aDelete",
-			"aTransfer": "runFeature__wrappee__aTransfer",
 			"aShow": "runFeature__wrappee__Users",
 			"Users": "runFeature__wrappee__Users",
-			"uInsertion": "runFeature",
-			"uModification": "runFeature__wrappee__uModification",
-			"uDelete": "runFeature__wrappee__Transaktion",
-			"Base": "runFeature__wrappee__Transaktion"
+			"uInsertion": "runFeature"
 		},
 		"loadFeatures": {
 			"Transaktion": "loadFeatures__wrappee__Transaktion",
 			"Session": "loadFeatures__wrappee__Session",
+			"Base": "loadFeatures__wrappee__Base",
 			"Accounts": "loadFeatures__wrappee__Accounts",
-			"Users": "loadFeatures",
-			"Base": "loadFeatures"
+			"Users": "loadFeatures"
 		},
 		"loadFunctions": {
 			"Transaktion": "loadFunctions__wrappee__Transaktion",
 			"Session": "loadFunctions__wrappee__Session",
+			"Base": "loadFunctions__wrappee__Base",
 			"Accounts": "loadFunctions__wrappee__Accounts",
-			"Users": "loadFunctions",
-			"Base": "loadFunctions"
+			"Users": "loadFunctions"
 		},
 		"getTid": {
 			"Transaktion": "getTid"
@@ -64,9 +57,9 @@
 		"getDescription": {
 			"Transaktion": "getDescription",
 			"Session": "getDescription",
+			"Base": "getDescription",
 			"Accounts": "getDescription",
-			"Users": "getDescription",
-			"Base": "getDescription"
+			"Users": "getDescription"
 		},
 		"setDescription": {
 			"Transaktion": "setDescription"
@@ -124,59 +117,36 @@
 		"getTitle": {
 			"Transaktion": "getTitle",
 			"Session": "getTitle",
+			"Base": "getTitle",
 			"Accounts": "getTitle",
 			"Categories": "getTitle",
-			"Users": "getTitle",
-			"Base": "getTitle"
+			"Users": "getTitle"
 		},
 		"getFunctions": {
 			"Transaktion": "getFunctions__wrappee__Transaktion",
 			"tInsertion": "getFunctions__wrappee__tInsertion",
-			"tModification": "getFunctions__wrappee__tModification",
-			"tDelete": "getFunctions__wrappee__tDelete",
-			"tShow": "getFunctions__wrappee__Session",
 			"Session": "getFunctions__wrappee__Session",
 			"Login": "getFunctions__wrappee__Login",
 			"Logout": "getFunctions__wrappee__Accounts",
+			"Base": "getFunctions__wrappee__Transaktion",
+			"tShow": "getFunctions__wrappee__Session",
 			"Accounts": "getFunctions__wrappee__Accounts",
 			"aInsertion": "getFunctions__wrappee__aInsertion",
-			"aModification": "getFunctions__wrappee__aModification",
-			"aDelete": "getFunctions__wrappee__aDelete",
-			"aTransfer": "getFunctions__wrappee__aTransfer",
 			"aShow": "getFunctions__wrappee__Users",
 			"Users": "getFunctions__wrappee__Users",
-			"uInsertion": "getFunctions",
-			"uModification": "getFunctions__wrappee__uModification",
-			"uDelete": "getFunctions__wrappee__Transaktion",
-			"Base": "getFunctions__wrappee__Transaktion"
+			"uInsertion": "getFunctions"
 		},
 		"getID": {
 			"Transaktion": "getID",
 			"Session": "getID",
+			"Base": "getID",
 			"Accounts": "getID",
-			"Users": "getID",
-			"Base": "getID"
+			"Users": "getID"
 		},
 		"createNew": {
 			"tInsertion": "createNew",
 			"aInsertion": "createNew",
 			"uInsertion": "createNew"
-		},
-		"mod": {
-			"tModification": "mod",
-			"aModification": "mod",
-			"uModification": "mod"
-		},
-		"delete": {
-			"tDelete": "delete",
-			"aDelete": "delete",
-			"uDelete": "delete"
-		},
-		"show": {
-			"tShow": "show",
-			"aShow": "show",
-			"uShow": "show",
-			"Base": "show"
 		},
 		"getStatus": {
 			"Session": "getStatus"
@@ -210,6 +180,42 @@
 			"DB_MYSQL": "getPassword",
 			"Users": "getPassword"
 		},
+		"main": {
+			"Base": "main"
+		},
+		"showSelectedFeatures": {
+			"Base": "showSelectedFeatures"
+		},
+		"showMainMenu": {
+			"Base": "showMainMenu"
+		},
+		"showFeatureMenu": {
+			"Base": "showFeatureMenu"
+		},
+		"getSelectMainMenu": {
+			"Base": "getSelectMainMenu"
+		},
+		"getSelectUnderMenu": {
+			"Base": "getSelectUnderMenu"
+		},
+		"getMainMenu": {
+			"Base": "getMainMenu"
+		},
+		"getExit": {
+			"Base": "getExit"
+		},
+		"getFeaturepart": {
+			"Base": "getFeaturepart"
+		},
+		"show": {
+			"Base": "show",
+			"tShow": "show",
+			"aShow": "show",
+			"uShow": "show"
+		},
+		"getAccess": {
+			"Base": "getAccess"
+		},
 		"getAtitle": {
 			"Accounts": "getAtitle"
 		},
@@ -227,9 +233,6 @@
 		},
 		"setAamount": {
 			"Accounts": "setAamount"
-		},
-		"transfer": {
-			"aTransfer": "transfer"
 		},
 		"setTitle": {
 			"Categories": "setTitle"
@@ -272,36 +275,6 @@
 		},
 		"setPassword": {
 			"Users": "setPassword"
-		},
-		"main": {
-			"Base": "main"
-		},
-		"showSelectedFeatures": {
-			"Base": "showSelectedFeatures"
-		},
-		"showMainMenu": {
-			"Base": "showMainMenu"
-		},
-		"showFeatureMenu": {
-			"Base": "showFeatureMenu"
-		},
-		"getSelectMainMenu": {
-			"Base": "getSelectMainMenu"
-		},
-		"getSelectUnderMenu": {
-			"Base": "getSelectUnderMenu"
-		},
-		"getMainMenu": {
-			"Base": "getMainMenu"
-		},
-		"getExit": {
-			"Base": "getExit"
-		},
-		"getFeaturepart": {
-			"Base": "getFeaturepart"
-		},
-		"getAccess": {
-			"Base": "getAccess"
 		}
 	}
 

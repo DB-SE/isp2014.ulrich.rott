@@ -44,25 +44,25 @@ public class AccountManager {
     //#endif
 
     //#ifdef aDelete
-    public void delete(Account account) throws SQLException {
-        delete(account.getAid());
-    }
-
-    public void delete(int aid) throws SQLException {
-        String stmt = "DELETE FROM transactions WHERE tid = ?";
-        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-        ps.setInt(1, aid);
-    }
+//@    public void delete(Account account) throws SQLException {
+//@        delete(account.getAid());
+//@    }
+//@
+//@    public void delete(int aid) throws SQLException {
+//@        String stmt = "DELETE FROM transactions WHERE tid = ?";
+//@        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
+//@        ps.setInt(1, aid);
+//@    }
     //#endif
 
     //#ifdef aTransfer
-    public void transfer(Account accountFrom, Account accountTo, float value, Date date) throws SQLException {
-        String description = "Transfer from" + accountFrom.getAdescription() + "  To " + accountTo.getAdescription();
-        Transaction ta1 = new Transaction(description, value * (-1), date, uid, uid, uid);
-        Transaction ta2 = new Transaction(description, value, date, uid, uid, uid);
-        tm.createNew(ta1);
-        tm.createNew(ta2);
-    }
+//@    public void transfer(Account accountFrom, Account accountTo, float value, Date date) throws SQLException {
+//@        String description = "Transfer from" + accountFrom.getAdescription() + "  To " + accountTo.getAdescription();
+//@        Transaction ta1 = new Transaction(description, value * (-1), date, uid, uid, uid);
+//@        Transaction ta2 = new Transaction(description, value, date, uid, uid, uid);
+//@        tm.createNew(ta1);
+//@        tm.createNew(ta2);
+//@    }
     //#endif
 
     private PreparedStatement fillValues(PreparedStatement ps, Account account) throws SQLException {

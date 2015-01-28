@@ -125,5 +125,36 @@
 		</constraints>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
-		<featureOrder userDefined="false"/>
+		<featureOrder userDefined="true">
+			<feature name="Base"/>
+			<feature name="Transaktion"/>
+			<feature name="tInsertion"/>
+			<feature name="tModification"/>
+			<feature name="tDelete"/>
+			<feature name="tShow"/>
+			<feature name="Session"/>
+			<feature name="Login"/>
+			<feature name="Logout"/>
+			<feature name="Statistik"/>
+			<feature name="YearOverview"/>
+			<feature name="MonthOverview"/>
+			<feature name="AccountsOverview"/>
+			<feature name="CategoriesOverview"/>
+			<feature name="DB_MYSQL"/>
+			<feature name="Accounts"/>
+			<feature name="aInsertion"/>
+			<feature name="aModification"/>
+			<feature name="aDelete"/>
+			<feature name="aTransfer"/>
+			<feature name="aShow"/>
+			<feature name="Categories"/>
+			<feature name="cInsertion"/>
+			<feature name="cModification"/>
+			<feature name="cDelete"/>
+			<feature name="Users"/>
+			<feature name="uInsertion"/>
+			<feature name="uModification"/>
+			<feature name="uDelete"/>
+			<feature name="uShow"/>
+		</featureOrder>
 	</featureModel>

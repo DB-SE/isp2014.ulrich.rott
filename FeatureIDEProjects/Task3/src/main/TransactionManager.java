@@ -48,15 +48,15 @@ public class TransactionManager {
     //#endif
 
     //#ifdef tDelete
-    public void delete(Transaction transaction) throws SQLException {
-        delete(transaction.getTid());
-    }
-
-    public void delete(int tid) throws SQLException {
-        String stmt = "DELETE FROM transactions WHERE tid = ?";
-        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
-        ps.setInt(1, tid);
-    }
+//@    public void delete(Transaction transaction) throws SQLException {
+//@        delete(transaction.getTid());
+//@    }
+//@
+//@    public void delete(int tid) throws SQLException {
+//@        String stmt = "DELETE FROM transactions WHERE tid = ?";
+//@        PreparedStatement ps = db.getConnection().prepareStatement(stmt);
+//@        ps.setInt(1, tid);
+//@    }
     //#endif
 
     private PreparedStatement fillValues(PreparedStatement ps, Transaction transaction) throws SQLException{

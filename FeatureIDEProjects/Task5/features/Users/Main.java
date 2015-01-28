@@ -10,8 +10,8 @@ public class Main {
 	
 	public static ArrayList<FunctionInterface> loadFunctions(ArrayList<FeatureInterface> features){
 		ArrayList<FunctionInterface> featurefc = original(features);
-		FunctionInterface FctUser = new FcAccount((UserManager) features.get(features.size() - 1));
-		featurefc.add(FctAccount);
+		FunctionInterface FctUser = new FcUser((UserManager) features.get(features.size() - 1));
+		featurefc.add(FctUser);
 		return featurefc;
 	}
 }

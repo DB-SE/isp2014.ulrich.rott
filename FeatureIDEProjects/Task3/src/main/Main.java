@@ -60,7 +60,7 @@ public class Main {
                  options.add("modification");
                     //#endif
                     //#ifdef tDelete
-                    options.add("delete");
+//@                    options.add("delete");
                     //#endif
                 }
                 runTaOption(MenuCreator(options));

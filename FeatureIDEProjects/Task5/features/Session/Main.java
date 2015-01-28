@@ -11,7 +11,7 @@ public class Main {
 	public static ArrayList<FunctionInterface> loadFunctions(ArrayList<FeatureInterface> features){
 		ArrayList<FunctionInterface> featurefc = original(features);
 		FunctionInterface FctLogin = new FcLogin((LoginManager) features.get(features.size() - 1));
-		Featurefc.add(FctLogin);
+		featurefc.add(FctLogin);
 		return featurefc;
 	}
 }
